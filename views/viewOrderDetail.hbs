@@ -1,0 +1,50 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/order_details">Order Details</a></li>
+    <li class="breadcrumb-item active" aria-current="page">View Order Details</li>
+  </ol>
+</nav>
+
+<div class="viewUser p-5">
+  {{#each rows}}
+  <div class="row mb-5">
+    <div class="col text-center">
+      <h3>{{this.order_id}} {{this.product_id}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Product ID</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Line Item</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{this.order_id}}</th>
+            <th>{{this.product_id}}</th>
+            <td>{{this.quantity}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.line_item}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    {{!-- <div class="row">
+      <div class="col">
+        <b>Comments</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {{this.comments}}
+      </div>
+    </div> --}}
+  </div>
+  {{/each}}
+</div>

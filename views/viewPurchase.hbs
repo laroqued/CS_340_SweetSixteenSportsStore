@@ -1,0 +1,52 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/purchases">Purchase</a></li>
+    <li class="breadcrumb-item active" aria-current="page">View Purchase</li>
+  </ol>
+</nav>
+
+<div class="viewUser p-5">
+  {{#each rows}}
+  <div class="row mb-5">
+    <div class="col text-center">
+      <h3>{{this.purchase_id}} {{this.product_id}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Purchase ID</th>
+            <th scope="col">Product ID ID</th>
+            <th scope="col">Purchases Date</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Payment Date</th>
+            <th scope="col">Item Received</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{this.purchase_id}}</th>
+            <th>{{this.product_id}}</th>
+            <td>{{this.purchase_date}}</td>
+            <td>{{this.cost}}</td>
+            <td>{{this.payment_date}}</td>
+            <td>{{this.item_received}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    {{!-- <div class="row">
+      <div class="col">
+        <b>Comments</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {{this.comments}}
+      </div>
+    </div> --}}
+  </div>
+  {{/each}}
+</div>

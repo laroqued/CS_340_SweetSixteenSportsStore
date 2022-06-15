@@ -1,0 +1,56 @@
+<br>
+      <div>   
+          <a  type="button" class="btn btn-dark btn-xs"  href="/">Home</a>
+          </div><br>
+<div class="row">
+<div class="col-6"><h1>Customers</h1></div>
+<div class="col-6 d-flex justify-content-end">
+  <a href="/addCustomer" type="button" class="btn btn-primary align-self-center">+ add customer</a>
+</div>
+
+</div>
+      <form class="d-flex" method="POST" action="customers" novalidate >
+        <input class="form-control me-2" type="search" placeholder="Search Customers by First or Last name" name="search" aria-label="Search">
+        <button class="btn btn-dark" type="submit">Search</button>
+      </form><br><br>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Customer ID</th>
+          <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Street Address</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Zip</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col"  class="text-end">View/Edit/Delete</th>
+  
+    </tr>
+  </thead>
+  <tbody>
+    {{!-- {{rows}} come from the query customerController.js this.columnName --}}
+{{#each rows}} 
+    <tr>
+      <th scope="row">{{this.customer_id}}</th>
+            <th scope="row">{{this.first_name}}</th>
+            <td>{{this.last_name}}</td>
+            <td>{{this.street_address}}</td>
+            <td>{{this.city}}</td>
+            <td>{{this.state}}</td>
+            <td>{{this.zip}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.phone}}</td>
+      <td class="text-end">
+        <a href="/viewCustomer/{{this.customer_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
+          <a href="/editCustomer/{{this.customer_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i> Edit</a>
+          <a href="/deleteCustomer/{{this.customer_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i> Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+
+
+  </tbody>
+</table>

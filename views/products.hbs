@@ -1,0 +1,49 @@
+<br>
+      <div>   
+          <a  type="button" class="btn btn-dark btn-xs"  href="/">Home</a>
+          </div><br>
+<div class="row">
+<div class="col-6"><h1>Products</h1></div>
+<div class="col-6 d-flex justify-content-end">
+  <a href="/addProduct" type="button" class="btn btn-primary align-self-center">+ add product</a>
+</div>
+
+</div>
+      <form class="d-flex" method="POST" action="products" novalidate >
+        <input class="form-control me-2" type="search" placeholder="Search Products by Item Name or Stock Status" name="search" aria-label="Search">
+        <button class="btn btn-dark" type="submit">Search</button>
+      </form><br><br>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+            <th scope="col">Product ID</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Stock Status</th>
+            <th scope="col"  class="text-end">View/Edit/Delete</th>
+  
+    </tr>
+  </thead>
+  <tbody>
+
+{{#each rows}} 
+    <tr>
+            <th scope="row">{{this.product_id}}</th>
+            <th>{{this.item_name}}</th>
+            <td>{{this.description}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.stock_status}}</td>
+
+      <td class="text-end">
+        <a href="/viewProduct/{{this.product_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
+          <a href="/editProduct/{{this.product_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i> Edit</a>
+          <a href="/deleteProduct/{{this.product_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i> Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+
+
+  </tbody>
+</table>

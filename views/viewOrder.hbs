@@ -1,0 +1,56 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/orders">Order</a></li>
+    <li class="breadcrumb-item active" aria-current="page">View Order</li>
+  </ol>
+</nav>
+
+<div class="viewUser p-5">
+  {{#each rows}}
+  <div class="row mb-5">
+    <div class="col text-center">
+      <h3>{{this.order_id}} {{this.customer_id}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Customer ID</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Update Date</th>
+            <th scope="col">Card Number</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Order Status</th>
+            <th scope="col">Order Filled</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{this.order_id}}</th>
+            <th>{{this.customer_id}}</th>
+            <td>{{this.order_date}}</td>
+            <td>{{this.update_date}}</td>
+            <td>{{this.card_numb}}</td>
+            <td>{{this.amount}}</td>
+            <td>{{this.order_status}}</td>
+            <td>{{this.order_filled}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    {{!-- <div class="row">
+      <div class="col">
+        <b>Comments</b>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {{this.comments}}
+      </div>
+    </div> --}}
+  </div>
+  {{/each}}
+</div>
